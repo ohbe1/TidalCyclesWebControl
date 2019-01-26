@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Basic TidalCycle Midi Controller</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!--    <link rel="stylesheet" type="text/css" href="css/slider.css"> -->
+             <link rel="stylesheet" type="text/css" href="css/custom.css">
+         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+         <script src="js/custom.js" type="text/javascript"></script>
+         <script src="js/webSocket.js" type="text/javascript"></script>
+          <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+   
+          <div class="container-fluid top-buffer  ">
+              <div class="row ">
+     
+                <div class="col col-md-4 launchpad_one ">
+                  
+                          <div class="row slider-bottom-buffer slider-top-buffer left-gutter ">
+                             
+                                    <button value="0" type="button" id="btn_d_1" value="d1" class="btn btn-sq-sm btn-outline-success slider-side-buffers left-gutter">d1</button>
+                                    
+                            
+                                    <button type="button" id="btn_d_2" class="btn btn-sq-sm btn-outline-success slider-side-buffers">d2</button>
+                          
+                               
+                                    <button type="button" id="btn_d_3" class="btn btn-sq-sm btn-outline-success slider-side-buffers">d3</button>
+                          
+               
+                                    <button type="button" id="btn_d_4" class="btn btn-sq-sm btn-outline-success slider-side-buffers">d4</button>
+           
+            
+                                    <button type="button" id="btn_d_5" class="btn btn-sq-sm btn-outline-success slider-side-buffers">d5</button>
+        
+                            </div>
+               
+                 
+                  
+                          <div class="row slider-bottom-buffer  ">
+                             
+                                    <button type="button" id="btn_d_6"  class="btn btn-sq-sm btn-outline-success slider-side-buffers left-gutter">d6</button>
+                           
+                            
+                                    <button type="button" id="btn_d_7"  class="btn btn-sq-sm btn-outline-success slider-side-buffers">d7</button>
+                          
+                               
+                                    <button type="button" id="btn_d_8"  class="btn btn-sq-sm btn-outline-success slider-side-buffers">d8</button>
+                          
+               
+                                    <button type="button" id="btn_d_9"  class="btn btn-sq-sm btn-outline-success slider-side-buffers">d9</button>
+           
+            
+                                    <button type="button"  id="btn_d_10" class="btn btn-sq-sm btn-outline-success slider-side-buffers">d10</button>
+        
+                            </div>
+               
+               
+            </div>
+                  <div class="col col-md-8">
+                     
+                       <div class="row slider_one ">
+                           <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain" orient="vertical" > G 
+                           </div>
+                           <div class="col col-1">
+                               <input type="range" min="0" max="6" step="0.10" value="0.5" class="slider" id="rnge_speed_" orient="vertical"  > S  
+                           </div>
+                           <div class="col col-1">
+                                 <input type="range" min="200" max="15000" step="100" value="500" class="slider" id="rnge_cut_" orient="vertical" > C
+                           </div>
+                           <div class="col col-1">
+                                 <input type="range" min="1" max="10" step="0.5" value="01" class="slider" id="rnge_legato_" orient="vertical" > L
+                           </div>
+                           <div class="col col-1">
+                                 <input type="range" min="1" max="20" step="0.5" value="1" class="slider" id="rnge_fast_" orient="vertical" > F
+                           </div>
+                            <div class="col col-1">
+                                 <input type="range" min="0" max="1" step="0.1" value="0.5" class="slider" id="rnge_pan_" orient="vertical" > L - R
+                           </div>
+                            <div class="col col-6">
+                               <textarea class="form-control" rows="8" id="midi_textArea" heigth="100%"></textarea> Midi Notes
+                           </div>
+        
+                            </div>
+                  </div>
+          </div>
+          </div>
+                   <div class="col col-md-12">
+                     
+                       <div class="row slider_one ">
+                           <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_1" orient="vertical" ><br> D1 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_2" orient="vertical" ><br> D2 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_3" orient="vertical" ><br> D3 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                                <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_4" orient="vertical" ><br> D4 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_5" orient="vertical" ><br> D5 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_6" orient="vertical" ><br> D6 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_7" orient="vertical" ><br> D7 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_8" orient="vertical" ><br> D8 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_9" orient="vertical" ><br> D9 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_10" orient="vertical" ><br> D10 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_11" orient="vertical" ><br> D11 Gain 
+                           </div>
+                            <div class="col col-1 ">
+                               <input type="range" min="0" max="1" step="0.10" value="0.5" class="slider" id="rnge_gain_12" orient="vertical" ><br> D12 Gain 
+                           </div>
+                           
+        
+                            </div>
+                  </div>
+       
+   
+  
+          </body>
+</html>
